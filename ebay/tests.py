@@ -10,6 +10,12 @@ class  LocationTestClass(TestCase):
   def test_instance(self):
     self.assertTrue(isinstance(self.mara,Location))  
     
+  def test_save_method(self):
+    self.mara.save_location()
+    location = Location.objects.all()
+    self.assertTrue(len(location) > 0)
+      
+    
 class CategoryTestClass(TestCase):
   def setUp(self):
     self.nature = Category(name = 'nature')    
@@ -18,3 +24,5 @@ class CategoryTestClass(TestCase):
     self.assertTrue(isinstance(self.nature,Category))  
     
 class ArticleTestClass(TestCase):    
+  def setUp(self):
+    
