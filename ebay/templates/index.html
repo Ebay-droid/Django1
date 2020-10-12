@@ -1,13 +1,21 @@
+{% load static%}
 {%include 'base.html'%}
+
+
+{%block styles%}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{%endblock%}
+
 
 {%block content%}
 <div class="container">
   <p class="jumbotron text-center">The Joy with photos is you can take them anywhere, anytime. This here is a gallery of my photos . Enjoy as you browse through 
-    <button  class="btn btn-outline-elegant">Locations</button> </p>
+    <a href=""><button class="btn btn-outline-elegant"><i class="fas fa-map-marker-alt">Locations</i></button></a> </p>
     <div class="row">
       {%for image in images%}
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <img src="{{image.image.url}}" class="img-thumbnail" alt="">
         <p> <b>Name:</b>  {{image.name}}</p>
         <p><b>Description:</b> {{image.description}}</p> 
@@ -18,11 +26,4 @@
 
     
   </div>
-  
-
-
-
-
-
-
 {%endblock%}
