@@ -36,5 +36,7 @@ class ImageTestClass(TestCase):
     self.nature = Category(name = 'Nature')
     self.nature.save_category()
     
+    self.new_image = Image(name ='A day in the life of..',description='Isnt nature beautiful',location=self.mara,category=self.nature)
+    self.new_image.save()
     
     
