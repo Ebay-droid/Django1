@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Image
+from .models import Image,Category,Location
 
 # Create your views here.
 def index(request):
@@ -18,7 +18,12 @@ def search_results(request):
     message = "Please input a valid term"
     return render(request,'search.html', {'message':message})
   
-# def get_image_by_id(request,image_id):
+def get_image_by_id(request,image_id):
+  try:
+    image= Image.objects.get(id=image_id)
+  except DoesNotExist:
+    raise Http404()  
+  return render(request,'display.html',{'image':image})
   
   
   
