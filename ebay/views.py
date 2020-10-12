@@ -3,7 +3,8 @@ from .models import Image,Category,Location
 
 # Create your views here.
 def index(request):
-  return render(request, 'index.html')
+  images= Image.get_all()
+  return render(request, 'index.html',)
 
 
 def search_results(request):
