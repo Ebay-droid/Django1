@@ -9,8 +9,8 @@ def index(request):
 
 def search_results(request):
   
-  if 'image' in request.GET and request.GET["IMAGE"]:
-    search_term = request.GET("image")
+  if 'image' in request.GET and request.GET["image"]:
+    search_term = request.GET.get("image")
     searched_images = Image.search_by_category(search_term)
     message = f"{search_term}"
     
@@ -25,6 +25,11 @@ def get_image_by_id(request,image_id):
   except DoesNotExist:
     raise Http404()  
   return render(request,'display.html',{'image':image})
+
+def filter_by_location(request,location):
+  image= Image.filter_by_location(location)
+  
+  return render(request.'location.html',{'image':image})
   
   
   

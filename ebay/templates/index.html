@@ -4,17 +4,16 @@
 <div class="container">
   <p class="jumbotron text-center">The Joy with photos is you can take them anywhere, anytime. This here is a gallery of my photos . Enjoy as you browse through</p>
 </div>
-<div class="card">
+<div class="card row">
   {%for image in images%}
-  <div class="row-md-4">
+ 
     <div class="col-md-4">
       <img src="{{image.image.url}}" class="img-thumbnail" alt="">
-    </div>
-    <div class="col-md-4">
       <p>{{image.name}}</p>
       <p>{{image.description}}</p>
     </div>
-  </div>
+    
+  
   {%endfor%}
 </div>
 

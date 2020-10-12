@@ -1,4 +1,4 @@
-{%extends 'base.html'%}
+{%include 'base.html'%}
 {%block content%}
 <div class="container">
   <div class="row">
@@ -12,7 +12,7 @@
       {%if images%}
         {%for image in images%}
           <div class="col-md-4">
-            {{image.image}}
+            <img src="{{image.image.url}}" class="img-thumbnail img-fluid" alt="">
             <p>{{image.name}}</p>
           </div>
         {%endfor%}
