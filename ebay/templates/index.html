@@ -9,21 +9,59 @@
 
 
 {%block content%}
-<div class="container">
+ <div class="container">
   <p class="jumbotron text-center">The Joy with photos is you can take them anywhere, anytime. This here is a gallery of my photos . Enjoy as you browse through 
     <a href=""><button class="btn btn-outline-elegant"><i class="fas fa-map-marker-alt">Locations</i></button></a> </p>
+    
     <div class="row">
       {%for image in images%}
-
       <div class="col-md-3">
-        <img src="{{image.image.url}}" class="img-thumbnail" alt="">
-        <p> <b>Name:</b>  {{image.name}}</p>
-        <p><b>Description:</b> {{image.description}}</p> 
+        <img src="{{image.image.url}}" class="img-thumbnail" data-toggle="modal" data-target="#modalQuickView{{image.id}}">
+        <!-- Modal: modalQuickView -->
+        <div class="modal fade" id="modalQuickView{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="row">
+                  
+                  <div class="col-lg-5">
+                    <!--Carousel Wrapper-->
+                    <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails"
+                      data-ride="carousel">
+                      <img src="{{image.image.url}}" class="img-thumbnail" alt="">
+        
+                    
+                    </div>
+                    <!--/.Carousel Wrapper-->
+                  </div>
+                  <div class="col-lg-7">
+                    <h2 class="h2-responsive product-name">
+                      <strong>Name: {{image.name}}</strong>
+                    </h2>
+                    <h4 class="h4-responsive">
+                      <span class="green-text">
+                        <strong>Description: {{image.description}}</strong>
+                      </span>
+                    </h4>
+                      </div>
+                    
+                     
+                      </div>
+                      
+        
+                    </div>
+    
+                  </div>
+                </div>
+              </div>
       </div>
-      {%endfor%}
-    
-    </div>
 
+     {%endfor%}
+    </div>
     
-  </div>
+        
 {%endblock%}
+
+
+
