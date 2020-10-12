@@ -2,10 +2,11 @@
 
 {%block content%}
 <div class="container">
-  <p class="jumbotron text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, est maiores. Pariatur laborum, nam eveniet veniam nulla fugit soluta qui ratione maiores aspernatur nesciunt quod ad eligendi asperiores doloremque dignissimos.</p>
+  <p class="jumbotron text-center">The Joy with photos is you can take them anywhere, anytime. This here is a gallery of my photos . Enjoy as you browse through</p>
 </div>
-{%for image in images%}
-  <div class="row">
+<div class="card">
+  {%for image in images%}
+  <div class="row-md-4">
     <div class="col-md-4">
       <img src="{{image.image.url}}" class="img-thumbnail" alt="">
     </div>
@@ -15,5 +16,7 @@
     </div>
   </div>
   {%endfor%}
+</div>
+
 
 {%endblock%}
