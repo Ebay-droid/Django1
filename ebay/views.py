@@ -4,7 +4,8 @@ from .models import Image,Category,Location
 # Create your views here.
 def index(request):
   images= Image.get_all()
-  return render(request, 'index.html',{'images':images})
+  location= Location.objects.all()
+  return render(request, 'index.html',{'images':images, "location":location})
 
 
 def search_results(request):
@@ -28,6 +29,7 @@ def get_image_by_id(request,image_id):
 
 def filter_by_location(request,location):
   image= Image.filter_by_location(location)
+  
   
   return render(request,'location.html',{'images':image})
   
