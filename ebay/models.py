@@ -24,7 +24,7 @@ class Category(models.Model):
     
     
 class  Image(models.Model):
-  image = models.ImageField(upload_to = 'images/')
+  image = models.ImageField(upload_to = 'images/',default ='')
   name= models.CharField(max_length =10)
   description= models.TextField()
   location = models.ForeignKey(Location, on_delete=models.CASCADE)
@@ -40,3 +40,7 @@ class  Image(models.Model):
   def search_by_category(cls, search_term):
     image = cls.objects.filter(category__icontains=search_term)
     return image    
+  @classmethod
+  def get_image_by_id(cls,id):
+    image = cls.objects.get(id=id)
+    return image
