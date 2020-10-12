@@ -18,7 +18,7 @@ class  LocationTestClass(TestCase):
     
 class CategoryTestClass(TestCase):
   def setUp(self):
-    self.nature = Category(name = 'nature')    
+    self.nature = Category(name = 'Nature')    
     
   def test_instance(self):
     self.assertTrue(isinstance(self.nature,Category)) 
@@ -28,6 +28,13 @@ class CategoryTestClass(TestCase):
     category = Category.objects.all()
     self.assertTrue(len(category) >0)
     
-# class ArticleTestClass(TestCase):    
-#   def setUp(self):
+class ImageTestClass(TestCase):    
+  def setUp(self):
+    
+    self.mara = Location(name = 'Maasai mara')
+    self.mara.save_location()
+    self.nature = Category(name = 'Nature')
+    self.nature.save_category()
+    
+    
     
