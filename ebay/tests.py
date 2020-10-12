@@ -21,8 +21,13 @@ class CategoryTestClass(TestCase):
     self.nature = Category(name = 'nature')    
     
   def test_instance(self):
-    self.assertTrue(isinstance(self.nature,Category))  
+    self.assertTrue(isinstance(self.nature,Category)) 
     
-class ArticleTestClass(TestCase):    
-  def setUp(self):
+  def test_save_category(self):
+    self.nature.save_category()
+    category = Category.objects.all()
+    self.assertTrue(len(category) >0)
+    
+# class ArticleTestClass(TestCase):    
+#   def setUp(self):
     
