@@ -41,9 +41,20 @@
                     </h2>
                     <h4 class="h4-responsive">
                       <span class="grey-text">
-                        <strong>Description: </strong>{{image.description}}
+                        <strong>Description: </strong><br>{{image.description}}
                       </span>
                     </h4>
+                    <h4 class="h4-responsive">
+                      <span class="grey-text">
+                        <strong>Category: </strong>{{image.category}}
+                      </span>
+                    </h4>
+                    <h4 class="h4-responsive">
+                      <span class="grey-text">
+                        <strong><i class="fas fa-map-marker-alt">Location: </i></strong>{{image.location}}
+                      </span>
+                    </h4>
+                    <br>
 
                     <input type="text" value="{{image.image.url}}" id="{{image.id}}.url">
                     <button class="btn" onclick="imLink('{{image.id}}.url')">Copy text</button>
