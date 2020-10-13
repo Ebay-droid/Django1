@@ -45,8 +45,8 @@
                       </span>
                     </h4>
 
-                    <input type="text" value="{{image.image.url}}" id="{{image.id}}">
-                    <button onclick="imLink()">Copy text</button>
+                    <input type="text" value="{{image.image.url}}" id="{{image.id}}.url">
+                    <button class="btn" onclick="imLink('{{image.id}}.url')">Copy text</button>
                       </div>
                     
                      
@@ -64,8 +64,8 @@
     </div>
 
     <script>
-      function imLink() {
-        var copyText = document.getElementById("imLink");
+      function imLink(path) {
+        var copyText = document.getElementById(path);
         copyText.select();
         copyText.setSelectionRange(0, 99999)
         document.execCommand("copy");
