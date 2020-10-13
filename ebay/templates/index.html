@@ -37,13 +37,16 @@
                   </div>
                   <div class="col-lg-7">
                     <h2 class="h2-responsive product-name">
-                      <strong>Name: {{image.name}}</strong>
+                      <strong>Name: </strong>{{image.name}}
                     </h2>
                     <h4 class="h4-responsive">
-                      <span class="green-text">
-                        <strong>Description: {{image.description}}</strong>
+                      <span class="grey-text">
+                        <strong>Description: </strong>{{image.description}}
                       </span>
                     </h4>
+
+                    <input type="text" value="{{image.image.url}}" id="{{image.id}}">
+                    <button onclick="imLink()">Copy text</button>
                       </div>
                     
                      
@@ -60,7 +63,15 @@
      {%endfor%}
     </div>
 
-    
+    <script>
+      function imLink() {
+        var copyText = document.getElementById("imLink");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        alert("Link Copied");
+      }
+      </script>
         
 {%endblock%}
 
