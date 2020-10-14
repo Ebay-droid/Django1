@@ -15,10 +15,17 @@ import  os
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+import  cloudinary
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+cloudinary.config(
+  cloud_name = config('CLOUD_NAME'),
+  api_key = config('CLOUD_API'),
+  api_secret = config('API_SECRET'),
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -59,6 +66,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
+    'cloudinary',
     'ebay',
     'django.contrib.admin',
     'django.contrib.auth',
